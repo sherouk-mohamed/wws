@@ -1,7 +1,8 @@
 <?php
 require_once("teacher.php");
 require_once("message.php");
-require_once("parent.php")
+require_once("parent.php");
+require_once("interface.php");
 interface Participant {
     public function getId(): int;
 }
