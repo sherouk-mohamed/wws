@@ -1,7 +1,8 @@
 <?php 
 require_once ("cart.php");
+require_once ("implementation.php");
 
- class payment
+ class payment implements implementation 
 {
 private string $paymentID;
 private  float $amount;
