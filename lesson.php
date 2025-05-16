@@ -13,6 +13,12 @@ class lesson {
     public $title;
     public $lessondescription ; 
     public $subject;
-    private ?HomeworkNode $head = null; 
+    public ?HomeworkNode $head = null; 
+     public function getLessonId() {
+        return $this->lessonid;
+    }
+    public function setLessonId($lessonid) {
+        $this->lessonid = $lessonid;
+    }
 }
 ?>
