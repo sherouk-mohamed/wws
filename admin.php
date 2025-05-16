@@ -1,6 +1,5 @@
 <?php 
 require_once("user.php");
-require_once("interface.php");
 interface Websuser {
     public function getId(): string; 
 }
