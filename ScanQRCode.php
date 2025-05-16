@@ -1,6 +1,6 @@
 <?php 
 require_once ("teacher.php");
-class notification 
+class ScanQRCode
 {
 private string $scanID;
 public string $timestamp;
