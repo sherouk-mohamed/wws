@@ -1,5 +1,6 @@
 <?php
-require_once("child.php")
+require_once("child.php");
+require_once("chat.php");
 class ChildNode {
     public Child $data;
     public ?ChildNode $next = null;
@@ -13,16 +14,24 @@ class parent extends user
     private ?ChildNode $head = null; 
  private $encryptedpasswordinfo;
  private $parentQrcode;
+public function getEncryptedpasswordinfo(): string {
+    return $this->encryptedpasswordinfo;
+}
 
+public function setEncryptedpasswordinfo(string $encryptedpasswordinfo): void {
+    $this->encryptedpasswordinfo = $encryptedpasswordinfo;
+}
+
+public function getParentQrcode(): string {
+    return $this->parentQrcode;
+}
+
+public function setParentQrcode(string $parentQrcode): void {
+    $this->parentQrcode = $parentQrcode;
+}
  function viewchildattendance($childid)
  {
-    $current = $this->head;
-
-    if ($current === null) {
-        echo "No children found.\n";
-        return;
-    }
-    echo "Child Attendance:\n";
+   
  }
  function requestpayment()
  {
