@@ -1,4 +1,6 @@
-<?php 
+<?php
+require_once ("ScanQRCode.php");
+ 
 class notification 
 {
 private string $notificationID;
