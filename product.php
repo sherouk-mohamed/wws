@@ -1,7 +1,7 @@
 <?php 
     require_once ("admin.php");
-
- class product
+require_once ("implementation.php");
+ class product implements implementation 
 {
   
 private string $productID;
