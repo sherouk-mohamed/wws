@@ -1,4 +1,6 @@
 <?php 
+require_once ("cart.php");
+
  class payment
 {
 private string $paymentID;
