@@ -2,7 +2,7 @@
 require_once("teacher.php");
 require_once("message.php");
 require_once("parent.php");
-require_once("interface.php");
+require_once("implementation.php");
 interface Participant {
     public function getId(): int;
 }
@@ -48,7 +48,7 @@ class MessageNode {
     }
 }
 
-class chat {
+class chat implements implementation {
     private $chatid;
     private ?Participant $head = null; 
     private ?message $head = null; 
