@@ -1,5 +1,6 @@
 <?php
- class Homework {
+require_once("implementation.php")
+ class Homework implements implementation {
     private Homeworkid ;
     private lessonid;
     private grade;
