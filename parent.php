@@ -1,6 +1,8 @@
 <?php
 require_once("child.php");
 require_once("chat.php");
+require_once("db.php");
+
 class ChildNode {
     public Child $data;
     public ?ChildNode $next = null;
@@ -9,45 +11,32 @@ class ChildNode {
         $this->data = $child;
     }
 }
-class parent extends user  
-{
-    private ?ChildNode $head = null; 
- private $encryptedpasswordinfo;
- private $parentQrcode;
-public function getEncryptedpasswordinfo(): string {
-    return $this->encryptedpasswordinfo;
+class ParentUser extends User {
+    private $parentId;
+    private $children = [];
+
+    public function getParentId(): int {
+        return $this->parentId;
+    }
+
+    public function loadChildren(): void {
+        $stmt = $this->db->conn->prepare(
+            "SELECT c.* FROM children c
+             JOIN parent_children pc ON c.child_id = pc.child_id
+             WHERE pc.parent_id = ?"
+        );
+        $stmt->bind_param("i", $this->parentId);
+        $stmt->execute();
+        $result = $stmt->get_result();
+        
+        while ($row = $result->fetch_assoc()) {
+            $this->children[] = $row;
+        }
+    }
+
+    public function getChildren(): array {
+        return $this->children;
+    }
 }
 
-public function setEncryptedpasswordinfo(string $encryptedpasswordinfo): void {
-    $this->encryptedpasswordinfo = $encryptedpasswordinfo;
-}
-
-public function getParentQrcode(): string {
-    return $this->parentQrcode;
-}
-
-public function setParentQrcode(string $parentQrcode): void {
-    $this->parentQrcode = $parentQrcode;
-}
- function viewchildattendance($childid)
- {
-   
- }
- function requestpayment()
- {
-
- }
- function viewnotifactions()
- {
-
- }
- function viewscehdule()
- {
-
- }
- function viewactivites()
- {
-
- }
-} 
 ?>
