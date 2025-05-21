@@ -1,9 +1,17 @@
-<? php
+<?php
  class child {
-    public $childid;
-    public $childname;
+    public $child_id;
+    public $name;
+   public $birth_date;
+    public $parent_id;
+    public $parentNumber;
+    public $qr_code;
     public $age;
-    public $parentId;
-    public $childqrcode;
+
+        function __construct($db) {
+        $this->db = $db;
+    }
+    
+
  }
  ?>
